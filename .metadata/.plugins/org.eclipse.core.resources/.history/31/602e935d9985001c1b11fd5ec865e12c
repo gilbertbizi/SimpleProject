@@ -1,0 +1,36 @@
+package com.bookstore.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+public class HomeController {
+	@RequestMapping("/")
+	public String index() {
+		return "index";
+	}
+
+	@RequestMapping("/myAccount")
+	public String myaccount() {
+		return "myAccount";
+	}
+
+	@RequestMapping("/newUser")
+	public String newUser(Model model) {
+		model.addAttribute("classActiveNewAccount", true);
+		return "myAccount";
+	}
+	
+	@RequestMapping("/login")
+	public String login(Model model) {
+		model.addAttribute("classActiveLogin", true);
+		return "myAccount";
+	}
+	@RequestMapping("/forgetPasword")
+	public String forgetPasword(Model model) {
+		model.addAttribute("classActiveForgotPassword", true);
+		return "myAccount";
+	}
+
+}
